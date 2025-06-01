@@ -1,0 +1,246 @@
+/* These css variables let you define key colors and styles in one place 
+and reuse them throughout the CSS using var(--name). */
+:root {
+  --bg: #f6f8ff;
+  --bg-content: #fefefe;
+  --text: #4b6a9b;
+  --text-alt: #2b3442;
+  --shadow: 0px 16px 30px -10px rgba(70, 96, 187, 0.2);
+  --btn: #0079ff;
+  --btn-hover: #60abff;
+}
+
+body.dark-mode {
+  --bg: #141d2f;
+  --bg-content: #1e2a47;
+  --text: #ffffff;
+  --text-alt: #ffffff;
+  --shadow: none;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Space Mono", monospace;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+}
+
+.container {
+  width: 90%;
+  max-width: 730px;
+  margin: 40px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#btn-mode {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#mode-icon {
+  font-size: 18px;
+  color: var(--text);
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+body.dark-mode #mode-icon {
+  transform: rotate(180deg);
+}
+
+.searchbar-container {
+  background-color: var(--bg-content);
+  border-radius: 15px;
+  box-shadow: var(--shadow);
+  display: flex;
+  align-items: center;
+  padding: 10px 16px;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.searchbar-container i {
+  font-size: 18px;
+  color: var(--text);
+}
+
+.searchbar-container input {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: none;
+  font-size: 16px;
+  color: var(--text);
+}
+
+.btn-search {
+  padding: 10px 20px;
+  background-color: var(--btn);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.btn-search:hover {
+  background-color: var(--btn-hover);
+}
+
+.profile-container {
+  background-color: var(--bg-content);
+  border-radius: 15px;
+  box-shadow: var(--shadow);
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  margin-top: 40px;
+}
+
+.profile-header {
+  display: flex;
+  gap: 28px;
+  align-items: flex-start;
+}
+
+#avatar {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+}
+
+.profile-name {
+  flex: 1;
+}
+
+.profile-name h2 {
+  font-size: 22px;
+  color: var(--text-alt);
+  margin-bottom: 4px;
+}
+
+#user {
+  color: var(--btn);
+  text-decoration: none;
+  margin-bottom: 4px;
+  display: inline-block;
+}
+
+#date {
+  font-size: 14px;
+  opacity: 0.75;
+}
+
+#bio {
+  font-size: 14px;
+  line-height: 1.6;
+  opacity: 0.9;
+  margin-top: 10px;
+}
+
+.profile-stats-wrapper {
+  background-color: var(--bg);
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 28px;
+  margin-top: 10px;
+}
+
+.profile-stat {
+  text-align: center;
+}
+
+.stat-title {
+  font-size: 12px;
+}
+
+.stat-value {
+  font-size: 18px;
+  font-weight: bold;
+  color: var(--text-alt);
+}
+
+.profile-bottom-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 10px;
+}
+
+.profile-info {
+  width: 48%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  word-break: break-word;
+}
+
+.profile-info i {
+  font-size: 16px;
+  color: var(--text);
+}
+
+.profile-info a,
+.profile-info p {
+  color: var(--text);
+  text-decoration: none;
+  overflow-wrap: anywhere;
+}
+
+.error {
+  color: red;
+  font-weight: bold;
+  font-size: 14px;
+  margin-top: 8px;
+}
+
+/* Responsive layout for smaller screens */
+@media (max-width: 600px) {
+  .profile-bottom-wrapper {
+    flex-direction: column;
+  }
+
+  .profile-info {
+    width: 100%;
+  }
+
+  .profile-header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 16px;
+  }
+
+  #avatar {
+    width: 100px;
+    height: 100px;
+  }
+
+  .profile-name h2 {
+    font-size: 24px;
+  }
+
+  .profile-stats-wrapper {
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+  }
+}
